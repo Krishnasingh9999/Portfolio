@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  body {
+    @apply font-sans transition-colors duration-300;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Custom scrollbar matching design accents */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-50 dark:bg-gray-950;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-800 rounded-full hover:bg-indigo-500 dark:hover:bg-indigo-600 transition-colors duration-300;
+  }
+}
