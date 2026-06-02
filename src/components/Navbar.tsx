@@ -6,6 +6,7 @@ import { FiDownload, FiHome, FiUser, FiCpu, FiFolder, FiBookOpen, FiAward, FiMai
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
 
+
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {

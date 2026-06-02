@@ -3,6 +3,7 @@ import { experiences, certificates } from '../data/portfolioData';
 import { motion } from 'framer-motion';
 import { FiExternalLink } from 'react-icons/fi';
 
+
 const Experience: React.FC = () => {
   return (
     <>
