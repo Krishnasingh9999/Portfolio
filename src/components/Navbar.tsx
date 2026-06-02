@@ -6,6 +6,30 @@ import { FiDownload, FiHome, FiUser, FiCpu, FiFolder, FiBookOpen, FiAward, FiMai
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 260,
+      damping: 25
+    }
+  }
+};
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,7 +72,9 @@ const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isOpen
+        isOpen
+          ? 'bg-gray-950'
+          : isScrolled
           ? 'bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-slate-900 py-4'
           : 'bg-transparent py-6'
       }`}
@@ -58,7 +84,7 @@ const Navbar: React.FC = () => {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, 'home')}
-          className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300"
+          className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300 z-50"
         >
           Krishna<span className="text-indigo-500">.</span>
         </a>
@@ -103,10 +129,10 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex items-center md:hidden space-x-4">
+        <div className="flex items-center md:hidden space-x-4 z-50">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300"
+            className="p-2 rounded-lg text-gray-300 hover:text-white transition-colors duration-300"
             aria-label="Toggle mobile navigation menu"
           >
             {isOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
@@ -114,96 +140,89 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Backdrop for Mobile Sidebar Menu */}
+      {/* Mobile Menu Overlay (Slides down from the top) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Drawer Menu (Slides in from the right) */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3, ease: 'easeOut' }}
-            className="fixed top-0 right-0 bottom-0 w-72 z-50 md:hidden bg-gray-950 border-l border-slate-800 flex flex-col p-6 pt-24"
+            initial={{ y: '-100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-100%' }}
+            transition={{ type: 'tween', duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 md:hidden bg-gray-950 flex flex-col px-6 pt-28 pb-8"
           >
-            {/* Close Button Inside Drawer */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-xl bg-slate-900 border border-slate-800 text-gray-400 hover:text-white hover:bg-slate-800 transition-colors duration-200"
-              aria-label="Close menu"
+            {/* Navigation links centered vertically */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="flex flex-col space-y-5 my-auto text-center"
             >
-              <HiX className="w-6 h-6" />
-            </button>
-
-            <nav className="flex flex-col space-y-3.5">
               {navLinks.map((link) => (
-                <a
+                <motion.a
+                  variants={itemVariants}
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`flex items-center text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
+                  className={`text-2xl font-bold tracking-tight py-1.5 transition-colors duration-300 ${
                     activeId === link.id
-                      ? 'text-indigo-400 bg-indigo-500/10 border border-indigo-500/20'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
+                      ? 'text-indigo-400'
+                      : 'text-gray-300 hover:text-white'
                   }`}
                 >
-                  {link.icon}
-                  <span className="ml-3">{link.name}</span>
-                </a>
+                  {link.name}
+                </motion.a>
               ))}
-            </nav>
 
-            {/* Resume Button & Social Links at bottom of mobile menu */}
-            <div className="mt-auto pt-6 border-t border-slate-800 flex flex-col gap-6">
-              <a
-                href={personalInfo.resumeUrl}
+              {/* Resume Button in Mobile Menu */}
+              <motion.div variants={itemVariants} className="pt-4 flex justify-center">
+                <a
+                  href={personalInfo.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-xl font-semibold text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20"
+                >
+                  <FiDownload className="w-4 h-4" />
+                  <span>Download Resume</span>
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Social Icons at bottom of overlay */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="mt-auto pt-6 border-t border-slate-900 flex justify-center gap-6 text-gray-400"
+            >
+              <motion.a
+                variants={itemVariants}
+                href="https://github.com/KrishnaSingh9999"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 rounded-xl font-medium text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="GitHub"
               >
-                <FiDownload className="w-4 h-4" />
-                <span>Download Resume</span>
-              </a>
-
-              <div className="flex items-center justify-center gap-5 text-gray-400">
-                <a
-                  href="https://github.com/KrishnaSingh9999"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors duration-200"
-                  aria-label="GitHub"
-                >
-                  <FaGithub className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/krishnasingh9811/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="mailto:krishna1863singh@gmail.com"
-                  className="hover:text-white transition-colors duration-200"
-                  aria-label="Email"
-                >
-                  <FiMail className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
+                <FaGithub className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                variants={itemVariants}
+                href="https://www.linkedin.com/in/krishnasingh9811/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                variants={itemVariants}
+                href="mailto:krishna1863singh@gmail.com"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="Email"
+              >
+                <FiMail className="w-5 h-5" />
+              </motion.a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
