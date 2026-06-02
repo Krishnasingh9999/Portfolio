@@ -6,10 +6,10 @@ import { FiExternalLink } from 'react-icons/fi';
 const Experience: React.FC = () => {
   return (
     <>
-      <section id="education" className="py-20 bg-transparent relative overflow-hidden">
+      <section id="education" className="py-20 bg-[#07080e] relative overflow-hidden">
       {/* Background accents */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
@@ -21,14 +21,14 @@ const Experience: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Education
           </h2>
           <div className="w-16 h-1 bg-indigo-500 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Timeline Layout */}
-        <div className="relative text-left">
+        <div className="relative">
           {/* Vertical Timeline Left Line */}
           <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-slate-800" />
 
@@ -40,7 +40,7 @@ const Experience: React.FC = () => {
                   className="relative flex items-start"
                 >
                   {/* Timeline Dot Indicator */}
-                  <div className="absolute left-[10px] md:left-[26px] w-3.5 h-3.5 rounded-full bg-indigo-500 border-4 border-[#030014] z-10 shadow-[0_0_12px_rgba(99,102,241,0.6)]" />
+                  <div className="absolute left-[10px] md:left-[26px] w-3.5 h-3.5 rounded-full bg-indigo-500 border-4 border-[#07080e] z-10" />
 
                   {/* Content Card (Left-aligned & pushed to the right of the line) */}
                   <motion.div
@@ -50,25 +50,27 @@ const Experience: React.FC = () => {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className="w-full ml-10 md:ml-16"
                   >
-                    <div className="p-6 rounded-2xl bg-[#0c0d21]/50 border border-white/5 hover:border-indigo-500/20 hover:shadow-[0_0_30px_rgba(99,102,241,0.05)] transition-all duration-300">
-                      <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-900/30 mb-3">
+                    <div className="p-4 sm:p-6 rounded-2xl bg-[#090b14]/75 border border-purple-500/15 hover:border-purple-500/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.05)] transition-all duration-300">
+                      <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-950/40 text-indigo-400 mb-3">
                         {exp.dateRange}
                       </span>
-                      <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                      <h3 className="text-xl font-bold text-white leading-tight">
                         {exp.role}
                       </h3>
                       <h4 className="text-sm font-semibold text-indigo-400 mt-1 mb-4">
-                        {exp.company} <span className="text-gray-450 font-normal">| {exp.location}</span>
+                        {exp.company} <span className="text-gray-500 font-normal">| {exp.location}</span>
                       </h4>
 
                       {/* Achievements bullets list */}
-                      <ul className="space-y-3 px-1 text-sm text-gray-400 list-none text-left">
+                      <ul className="space-y-3 px-1 text-sm sm:text-base text-gray-400 list-none text-left">
                         {exp.achievements.map((achievement, actIdx) => (
                           <li
                             key={actIdx}
                             className="flex gap-2.5 items-start text-left"
                           >
-                            <span className="text-indigo-400 font-bold mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-400 shadow-[0_0_6px_rgba(99,102,241,0.5)]" />
+                            <span className="text-indigo-400 font-bold mt-0.5 flex-shrink-0 text-lg leading-none">
+                              •
+                            </span>
                             <span className="leading-relaxed">{achievement}</span>
                           </li>
                         ))}
@@ -84,12 +86,12 @@ const Experience: React.FC = () => {
       </div>
     </section>
 
-    <section id="achievements" className="py-20 bg-transparent relative overflow-hidden border-t border-white/5">
+    <section id="achievements" className="py-20 bg-[#07080e] relative overflow-hidden border-t border-slate-900">
       {/* Background accents */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-left">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,8 +106,8 @@ const Experience: React.FC = () => {
               const hasLink = 'link' in cert && cert.link;
               const content = (
                 <>
-                  <div className="flex justify-between items-start gap-3">
-                    <span className="block font-bold text-sm text-gray-250 leading-snug group-hover:text-indigo-400 transition-colors duration-300">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="block font-bold text-sm text-gray-200 leading-snug group-hover:text-indigo-400 transition-colors duration-300">
                       {cert.title}
                     </span>
                     {hasLink && (
@@ -125,7 +127,7 @@ const Experience: React.FC = () => {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-5 rounded-2xl bg-[#0c0d21]/50 border border-white/5 hover:border-indigo-500/20 hover:shadow-[0_0_30px_rgba(99,102,241,0.05)] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                    className="p-4 sm:p-5 rounded-2xl bg-[#090b14]/75 border border-purple-500/15 hover:border-purple-500/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.05)] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                   >
                     {content}
                   </a>
@@ -135,7 +137,7 @@ const Experience: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="p-5 rounded-2xl bg-[#0c0d21]/50 border border-white/5 flex flex-col justify-between"
+                  className="p-4 sm:p-5 rounded-2xl bg-[#090b14]/75 border border-purple-500/15 flex flex-col justify-between"
                 >
                   {content}
                 </div>

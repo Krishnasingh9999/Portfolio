@@ -226,10 +226,10 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-24 bg-transparent relative overflow-hidden">
+    <section id="skills" className="py-24 bg-gray-50 dark:bg-gray-950 relative overflow-hidden">
       {/* Background accents */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 dark:bg-indigo-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-sky-500/5 dark:bg-sky-400/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
@@ -241,11 +241,11 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight">
             My Skills
           </h2>
-          <div className="w-16 h-1 bg-indigo-500 mx-auto rounded-full mb-4"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+          <div className="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto rounded-full mb-4"></div>
+          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
             Detailed breakdown of my technical expertise, structured by functional categories to showcase full-stack competence.
           </p>
         </motion.div>
@@ -264,14 +264,14 @@ const Skills: React.FC = () => {
               <motion.div
                 key={category.name}
                 variants={cardVariants}
-                className={`group flex flex-col p-5 rounded-2xl bg-[#0c0d21]/40 border border-white/5 hover:border-white/10 hover:shadow-[0_0_30px_rgba(99,102,241,0.05)] hover:-translate-y-1 transition-all duration-300 ${theme.accent}`}
+                className={`group flex flex-col p-4 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800/80 hover:border-indigo-500/20 dark:hover:border-indigo-400/20 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1 ${theme.accent} ${theme.glow}`}
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-3 mb-4 pb-2.5 border-b border-white/5">
-                  <div className="p-2 rounded-xl bg-black/30 border border-white/5 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center gap-3 mb-3.5 pb-2 border-b border-gray-100 dark:border-gray-800">
+                  <div className="p-1.5 rounded-xl bg-gray-50 dark:bg-gray-950 border border-gray-100/50 dark:border-gray-800/60 shadow-sm group-hover:scale-110 transition-transform duration-300">
                     {getCategoryIcon(category.name)}
                   </div>
-                  <h3 className="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
                     {category.name}
                   </h3>
                 </div>
@@ -282,7 +282,7 @@ const Skills: React.FC = () => {
                     <motion.div
                       key={skill.name}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/5 border border-white/5 text-gray-300 hover:text-indigo-400 hover:bg-[#0c0d21] hover:border-indigo-500/30 transition-all duration-200 text-xs font-semibold shadow-xs"
+                      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-gray-50/70 dark:bg-gray-950/50 border border-gray-100 dark:border-gray-800/80 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-white dark:hover:bg-gray-900 hover:border-indigo-500/20 dark:hover:border-indigo-400/20 transition-all duration-200 text-xs font-semibold shadow-xs"
                     >
                       {getSkillIcon(skill.iconName)}
                       <span>{skill.name}</span>

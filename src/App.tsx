@@ -21,7 +21,7 @@ const SectionLoader = () => (
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#030014] text-gray-100 transition-colors duration-300 antialiased selection:bg-indigo-500 selection:text-white">
+      <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 antialiased selection:bg-indigo-500 selection:text-white">
         <Suspense fallback={<SectionLoader />}>
           <Navbar />
           <main>
