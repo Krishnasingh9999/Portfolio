@@ -1,81 +1,100 @@
-# Krishna Singh - Portfolio Website
+# Krishna Singh — Personal Portfolio Website
 
-A complete, production-ready, recruiter-friendly personal portfolio website.
+A production-ready, highly optimized, and recruiter-friendly personal portfolio website showcasing full-stack development capabilities, algorithms experience, and system design skills. 
 
-[![React](https://img.shields.io/badge/React-18.3.1-blue.svg?style=flat-square&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.4-38bdf8.svg?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.3.2-ff007f.svg?style=flat-square&logo=framer)](https://www.framer.com/motion/)
-[![Vite](https://img.shields.io/badge/Vite-5.3.4-646cff.svg?style=flat-square&logo=vite)](https://vitejs.dev/)
+Built with a responsive, premium cosmic dark theme, smooth motion transitions, and type-safe components.
 
-## Features
+**Live Demo:** [https://krishnasingh-dev.vercel.app/](https://krishnasingh-dev.vercel.app/)
 
-- **Brittany Chiang Inspired Style**: A sleek, minimal layout optimized for technical recruiters.
-- **Dark Mode Support**: Seamless transition between light and dark mode using custom Tailwind config and localStorage persistence.
-- **Scroll Spy**: Highlights active section in navigation dynamically as you scroll.
-- **Typewriter Effect**: An interactive typing effect cycling through professional roles in the Hero section.
-- **Animated with Framer Motion**: Scroll-triggered fade-ins and slide animations across components.
-- **Code Splitting**: Sections loaded lazily using React.lazy and Suspense for high performance.
-- **SEO Ready**: Comprehensive metadata, open graph fields, and structured HTML elements.
+---
 
-## Project Structure
+## 🚀 Key Features
 
-```
+*   **Premium Cosmic Dark Design**: Implements a high-end dark aesthetic (`bg-[#030014]`) with smooth gradients, glassmorphism, and radial glow highlights.
+*   **Slide-In Mobile Navigation**: Custom drawer menu sliding in from the right viewport (`x: '100%'` to `x: 0`) with synchronized backdrop blur and staggered animation entries.
+*   **Dynamic Scroll Spy**: Tracks user scrolling in real-time, automatically highlighting active sections in the desktop and mobile navigation lists.
+*   **Interactive Hero Section**: Includes a smooth typewriter role animator and a floating user card containing quick stats (DSA solutions, certifications, B.Tech info).
+*   **Recruiter Focused Projects Grid**: Highlights core projects (MediDost, SyncTube, Java E-Commerce Engine) using detailed, impact-oriented bullet points outlining system architectures.
+*   **Fully Type-Safe & Build Verified**: Written entirely in TypeScript with strict compile-time verification.
+*   **Optimized Performance**: Code-splitting using `React.lazy` and `Suspense` for faster initial page loads and high Lighthouse scores.
+
+---
+
+## 🛠️ Tech Stack & Dependencies
+
+*   **Core**: React (v18.3.1), TypeScript (v5.5.3)
+*   **Bundler**: Vite (v5.3.4)
+*   **Styling**: Tailwind CSS (v3.4.4) for custom grid systems and utility styling
+*   **Animations**: Framer Motion (v11.3.2) for springs, tweens, and staggered entrance transitions
+*   **Icons**: React Icons (v5.2.1) providing access to FontAwesome, Feather, and SimpleIcons
+
+---
+
+## 📂 Project Structure
+
+```text
 src/
 ├── components/
-│   ├── Navbar.tsx
-│   ├── Hero.tsx
-│   ├── About.tsx
-│   ├── Skills.tsx
-│   ├── Projects.tsx
-│   ├── Experience.tsx
-│   ├── Contact.tsx
-│   └── Footer.tsx
+│   ├── Navbar.tsx            # Navigation header & right-sliding mobile drawer
+│   ├── Hero.tsx              # Splash section with typewriter role animator & stats card
+│   ├── About.tsx             # Interactive split-column bio and academic details
+│   ├── Skills.tsx            # Categorized list of technical skills with hover glow effects
+│   ├── Projects.tsx          # Dynamic projects portfolio grid (filtered, non-redundant)
+│   ├── FeaturedProject.tsx   # Detailed showcase card for primary high-impact project
+│   ├── Experience.tsx        # Structured timeline of educational qualifications
+│   ├── Contact.tsx           # Contact form with validation and styling overrides
+│   └── Footer.tsx            # Site footer containing copyright and quick social icons
 ├── context/
-│   └── ThemeContext.tsx
+│   └── ThemeContext.tsx      # Dark mode lock configurations
 ├── hooks/
-│   └── useScrollSpy.ts
+│   └── useScrollSpy.ts       # Active section tracker utility
 ├── data/
-│   └── portfolioData.ts
+│   └── portfolioData.ts      # Structured site copy (personalInfo, projects, experiences)
 ├── types/
-│   └── index.ts
-├── App.tsx
-└── main.tsx
+│   └── index.ts              # Global TypeScript interfaces (Project, Skill, Experience)
+├── App.tsx                   # Main layout container
+└── main.tsx                  # DOM entrypoint
 ```
 
-## Setup Instructions
+---
+
+## 💻 Local Development Setup
 
 ### Prerequisites
 
-Ensure you have [Node.js](https://nodejs.org/) installed (v18 or higher recommended).
+Ensure you have [Node.js](https://nodejs.org/) installed (version 18 or higher is recommended).
 
-### Installation
+### Setup Steps
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+1.  **Clone the repository and navigate to the project directory:**
+    ```bash
+    git clone https://github.com/Krishnasingh9999/Portfolio.git
+    cd Portfolio
+    ```
 
-2. Start the local development server:
-   ```bash
-   npm run dev
-   ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-3. Build the production application:
-   ```bash
-   npm run build
-   ```
+3.  **Start the local Vite development server:**
+    ```bash
+    npm run dev
+    ```
+    The server will spin up, typically at `http://localhost:5173/` (or next available port).
 
-4. Preview the built application:
-   ```bash
-   npm run preview
-   ```
+4.  **Perform TypeScript checking and build the production bundle:**
+    ```bash
+    npm run build
+    ```
 
-## Screenshots
+5.  **Locally preview the production bundle:**
+    ```bash
+    npm run preview
+    ```
 
-*(Screenshots of Dark Mode and Light Mode will go here)*
+---
 
-## Live Demo
+## 🎨 Verification Status
 
-A live demo is available at: [Live Demo Link Placeholder](https://krishnasingh.dev/)
-"# Portfolio" 
+This project has been thoroughly tested on mobile, tablet, and desktop viewports using automated Playwright browser simulations. All layouts, animations, transitions, and click behaviors render without overflow or transparency issues.

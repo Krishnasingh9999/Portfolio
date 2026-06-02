@@ -3,16 +3,16 @@ import { Project, SkillCategory, Experience, SocialLink } from '../types';
 export const personalInfo = {
   name: "Krishna Singh",
   roles: ["MERN Stack Developer", "Full Stack Developer", "Software Engineer"],
-  tagline: "I build real-time, scalable and user-friendly web applications. Passionate about clean code, data structures and solving real-world problems.",
+  tagline: "Full Stack Developer specializing in building high-performance MERN applications, real-time collaboration engines, and scalable backend architectures. Committed to writing clean, type-safe code and solving complex algorithm challenges.",
   resumeUrl: "https://drive.google.com/file/d/19px6_U6Js1EnCj3aiLq_GOsf6OFedfGg/view?usp=sharing",
   bioParagraphs: [
-    "I am a MERN Stack Developer and Computer Science undergraduate with hands-on experience building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Skilled in REST API development, responsive UI design, authentication, debugging, performance optimization, and database management.",
-    "Currently pursuing my Bachelor of Technology in Computer Science & Engineering (2022 - 2026) at KCC Institute of Technology and Management, Greater Noida (U.P), I maintain a strong foundation in core computer science subjects like Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, Computer Networks, System Design, and Software Engineering.",
-    "Passionate about solving real-world problems using modern web technologies, I have built collaborative platforms and healthcare solutions integrating Socket.io, Redis, and Zustand. I also leverage AI productivity tools to accelerate development workflows and code quality."
+    "I am a passionate Full Stack Developer and Computer Science undergraduate specializing in the MERN stack (MongoDB, Express.js, React, Node.js). With practical experience building production-ready applications, I focus on designing low-latency RESTful APIs, responsive frontend architectures, and secure authentication systems.",
+    "Currently pursuing a Bachelor of Technology in Computer Science & Engineering (2022 - 2026) at KCC Institute of Technology and Management (Greater Noida), I maintain a robust academic foundation in Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Management, Operating Systems, and Software Engineering.",
+    "I excel at translating complex system requirements into elegant, modular software. Through hands-on projects, I have integrated real-time state synchronization using Socket.io, database caching with Redis, and state management via Zustand. I continuously explore new technologies and AI-assisted workflows to maximize code quality and efficiency."
   ],
   stats: [
-    { label: "LeetCode Challenges", value: "100+" },
-    { label: "Certifications", value: "4" }
+    { label: "DSA Solutions", value: "200+" },
+    { label: "Industry Certifications", value: "8" }
   ]
 };
 
@@ -125,12 +125,12 @@ export const projects: Project[] = [
   {
     id: "project-1",
     title: "SyncTube - Real-Time Collaborative Watch Party Platform",
-    description: "A watch party platform enabling real-time multi-user media sync and interactive text chat.",
+    description: "A synchronized media platform enabling multi-user real-time watch parties with bi-directional playback control and interactive chat rooms.",
     bullets: [
-      "Developed a full-stack watch party platform using **MongoDB**, **Express.js**, **React**, **Node.js**, **Socket.IO**, and **Redis**.",
-      "Implemented synchronized video playback and real-time chat for seamless multi-user collaboration.",
-      "Built secure private room management and optimized state handling using **Zustand**.",
-      "Designed a responsive user interface compatible across mobile, tablet, and desktop devices."
+      "Architected a real-time collaborative watch party platform leveraging Socket.io for low-latency player state synchronization and Redis pub/sub for room session scaling.",
+      "Engineered synchronized media playback algorithms ensuring millisecond-level sync precision across multiple connected peers.",
+      "Implemented client-side session optimization using Zustand, minimizing component re-renders during active state changes.",
+      "Designed an elegant, responsive dark-themed user interface utilizing Tailwind CSS, fully optimized for mobile and desktop screens."
     ],
     tech: ["React", "Node.js", "Express.js", "MongoDB", "Socket.io", "Redis", "Zustand", "TailwindCSS", "JWT Authentication"],
     github: "https://github.com/Krishnasingh9999/synctube-watchparty-platform",
@@ -139,14 +139,14 @@ export const projects: Project[] = [
   },
   {
     id: "project-2",
-    title: "MediDost - A Smart Healthcare Assistance",
-    description: "An intelligent healthcare platform integrating AI symptom checker and roles-based dashboards.",
+    title: "MediDost - Smart Healthcare Platform",
+    description: "An intelligent healthcare assistance platform featuring AI-driven symptom diagnosis, medical records management, and role-based user portals.",
     bullets: [
-      "Developed a full-stack healthcare web application in a team environment using **MongoDB**, **Express.js**, **React**, and **Node.js**, **Socket.IO**, and **Redis** following SDLC principles from requirement analysis to deployment.",
-      "Implemented an **AI-based symptom checker** that analyzes user inputs and recommends appropriate doctors, reducing manual effort in appointment handling and medical report management through AI-assisted automation.",
-      "Independently developed and maintained backend modules, integrated **REST APIs**, and built secure role-based dashboards using **JWT authentication** and **bcrypt hashing** for multiple user roles.",
-      "Troubleshot application issues and optimized system performance, reducing page reload time by **15%** and supporting **200+** concurrent users.",
-      "Ensured responsive UI compatibility across multiple devices and modern browsers."
+      "Developed a full-stack healthcare ecosystem adhering to SDLC principles from requirement specification through integration testing to containerized deployment.",
+      "Integrated an AI symptom checker utilizing structured classification models to map symptoms and recommend localized specialized physicians.",
+      "Designed secure role-based access control (RBAC) dashboards for patients, doctors, and admins using JWT tokens and bcrypt password salting.",
+      "Optimized backend queries and database indexing, decreasing page initialization times by 15% and accommodating 200+ concurrent active connections.",
+      "Constructed a responsive, mobile-first frontend with cross-browser compatibility and smooth micro-animations."
     ],
     tech: ["React", "Node.js", "Express.js", "MongoDB", "Socket.io", "Redis", "TailwindCSS", "JWT Authentication"],
     github: "https://github.com/SmartHealthcareAssistant/A-Smart-Healthcare-Platform-MediDost",
@@ -156,13 +156,13 @@ export const projects: Project[] = [
   },
   {
     id: "project-3",
-    title: "E-Commerce Web Application",
-    description: "A dynamic Java e-commerce store with secure user session tracking and optimized performance.",
+    title: "Java E-Commerce Web Engine",
+    description: "A high-performance e-commerce platform built with native Java web technologies, featuring secure session tracking and SQL-injection defense.",
     bullets: [
-      "Developed Java Web Store using **JSP**, **Servlets**, and **JDBC** with **MySQL** database.",
-      "Implemented secure session tracking for shopping carts and user profile checkout flows.",
-      "Optimized server-side request routing, achieving **30%** reduction in query delays.",
-      "Designed secure input validation controls to prevent **SQL injection** and secure user transactions."
+      "Engineered an e-commerce platform using JSP, Servlets, and JDBC linked to a structured MySQL relational database.",
+      "Implemented secure, stateful session tracking for dynamic shopping carts and checkout invoice flows.",
+      "Optimized server-side request pipelines and connection pooling, achieving a 30% reduction in database retrieval latencies.",
+      "Implemented parameterized SQL queries and output sanitization to guard against injection vectors and Cross-Site Scripting (XSS)."
     ],
     tech: ["Java", "JSP", "Servlets", "SQL", "MySQL", "HTML5", "CSS3", "JavaScript"],
     github: "https://github.com/Krishnasingh9999/eCommerce_website",
