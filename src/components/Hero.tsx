@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 const Hero: React.FC = () => {
   const { tagline } = personalInfo;
   
-  const rolesCycle = ['Full Stack Developer (MERN)', 'Software Developer'];
+  const rolesCycle = ['Full Stack Developer (MERN)', 'Software Engineer'];
   const [currentRoleText, setCurrentRoleText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);

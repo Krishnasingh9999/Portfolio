@@ -186,7 +186,7 @@ export const experiences: Experience[] = [
   {
     id: "edu-2",
     role: "Higher Secondary (Class XII) | CBSE",
-    company: "VSV International School",
+    company: "YSY International School",
     location: "Greater Noida (U.P)",
     dateRange: "2021 - 2022",
     achievements: [
