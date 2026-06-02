@@ -113,26 +113,48 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Backdrop for Mobile Sidebar Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="absolute top-full left-0 right-0 md:hidden border-t border-slate-900 bg-gray-950/95 backdrop-blur-md shadow-lg overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 md:hidden"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Drawer Menu (Slides in from the right) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3, ease: 'easeOut' }}
+            className="fixed top-0 right-0 bottom-0 w-72 z-50 md:hidden bg-gray-950/98 backdrop-blur-md shadow-2xl border-l border-slate-900 flex flex-col p-6 pt-24"
           >
-            <nav className="flex flex-col px-6 py-5 space-y-4">
+            {/* Close Button Inside Drawer */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-6 right-6 p-2 rounded-lg bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800 transition-colors duration-200"
+              aria-label="Close menu"
+            >
+              <HiX className="w-6 h-6" />
+            </button>
+
+            <nav className="flex flex-col space-y-6">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`text-base font-semibold py-2 transition-colors duration-300 ${
+                  className={`text-lg font-semibold py-1.5 transition-colors duration-300 ${
                     activeId === link.id
-                      ? 'text-indigo-400 border-l-2 border-indigo-500 pl-3'
-                      : 'text-gray-300 hover:text-white pl-3'
+                      ? 'text-indigo-400 border-l-2 border-indigo-500 pl-4'
+                      : 'text-gray-300 hover:text-white pl-4'
                   }`}
                 >
                   {link.name}
