@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-950/40 relative">
+    <section id="contact" className="py-20 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -102,17 +102,17 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
             Get In Touch
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-6 text-sm sm:text-base">
+          <p className="text-gray-400 max-w-md mx-auto mb-6 text-sm sm:text-base">
             Have a question, project proposal, or just want to say hi? Fill out the form below.
           </p>
-          <div className="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto rounded-full"></div>
+          <div className="w-16 h-1 bg-indigo-500 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Contact Form Wrapper */}
-        <div className="max-w-lg mx-auto bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 p-8 rounded-2xl shadow-xl shadow-gray-100/50 dark:shadow-none">
+        <div className="max-w-lg mx-auto bg-[#0c0d21]/50 border border-white/5 p-8 rounded-2xl shadow-2xl backdrop-blur-lg">
           <motion.form
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-semibold text-gray-300 mb-2 text-left"
               >
                 Name
               </label>
@@ -137,21 +137,21 @@ const Contact: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 disabled={isLoading}
-                className={`w-full px-4 py-3 rounded-lg border bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-all duration-300 focus:outline-none focus:ring-2 ${
+                className={`w-full px-4 py-3 rounded-lg border bg-black/40 text-white transition-all duration-300 focus:outline-none focus:ring-1 ${
                   errors.name
-                    ? 'border-red-500 focus:ring-red-200 dark:focus:ring-red-900/30'
-                    : 'border-gray-200 dark:border-gray-800 focus:border-indigo-500 focus:ring-indigo-200 dark:focus:ring-indigo-900/30'
+                    ? 'border-red-500 focus:ring-red-500/30'
+                    : 'border-white/10 focus:border-indigo-500 focus:ring-indigo-500/30'
                 }`}
                 placeholder="Krishna Tripathi"
               />
-              {errors.name && <p className="text-red-500 text-xs mt-1.5">{errors.name}</p>}
+              {errors.name && <p className="text-red-500 text-xs mt-1.5 text-left">{errors.name}</p>}
             </div>
 
             {/* Email Input */}
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-semibold text-gray-300 mb-2 text-left"
               >
                 Email Address
               </label>
@@ -162,21 +162,21 @@ const Contact: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 disabled={isLoading}
-                className={`w-full px-4 py-3 rounded-lg border bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-all duration-300 focus:outline-none focus:ring-2 ${
+                className={`w-full px-4 py-3 rounded-lg border bg-black/40 text-white transition-all duration-300 focus:outline-none focus:ring-1 ${
                   errors.email
-                    ? 'border-red-500 focus:ring-red-200 dark:focus:ring-red-900/30'
-                    : 'border-gray-200 dark:border-gray-800 focus:border-indigo-500 focus:ring-indigo-200 dark:focus:ring-indigo-900/30'
+                    ? 'border-red-500 focus:ring-red-500/30'
+                    : 'border-white/10 focus:border-indigo-500 focus:ring-indigo-500/30'
                 }`}
                 placeholder="krishnatripathi@gmail.com"
               />
-              {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs mt-1.5 text-left">{errors.email}</p>}
             </div>
 
             {/* Message Area */}
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-semibold text-gray-300 mb-2 text-left"
               >
                 Message
               </label>
@@ -187,21 +187,21 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 disabled={isLoading}
-                className={`w-full px-4 py-3 rounded-lg border bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-all duration-300 focus:outline-none focus:ring-2 ${
+                className={`w-full px-4 py-3 rounded-lg border bg-black/40 text-white transition-all duration-300 focus:outline-none focus:ring-1 ${
                   errors.message
-                    ? 'border-red-500 focus:ring-red-200 dark:focus:ring-red-900/30'
-                    : 'border-gray-200 dark:border-gray-800 focus:border-indigo-500 focus:ring-indigo-200 dark:focus:ring-indigo-900/30'
+                    ? 'border-red-500 focus:ring-red-500/30'
+                    : 'border-white/10 focus:border-indigo-500 focus:ring-indigo-500/30'
                 }`}
                 placeholder="Write your message details..."
               />
-              {errors.message && <p className="text-red-500 text-xs mt-1.5">{errors.message}</p>}
+              {errors.message && <p className="text-red-500 text-xs mt-1.5 text-left">{errors.message}</p>}
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3.5 px-6 rounded-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 active:bg-indigo-800 transition-colors duration-300 flex items-center justify-center gap-2"
+              className="w-full py-3.5 px-6 rounded-lg font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 active:scale-95 disabled:from-indigo-400 disabled:to-indigo-500 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20"
             >
               {isLoading ? (
                 <>
@@ -218,7 +218,7 @@ const Contact: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/20 text-emerald-800 dark:text-emerald-400 text-sm font-medium text-center border border-emerald-100 dark:border-emerald-900/50"
+                className="p-4 rounded-lg bg-emerald-950/20 text-emerald-450 text-sm font-medium text-center border border-emerald-900/50"
               >
                 Thank you! Your message has been sent successfully.
               </motion.div>
@@ -226,14 +226,14 @@ const Contact: React.FC = () => {
           </motion.form>
 
           {/* Social Row Link Icons */}
-          <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-850 flex items-center justify-center gap-5">
+          <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-center gap-5">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-850 hover:scale-110 transition-all duration-300"
+                className="p-2.5 rounded-full text-gray-400 hover:text-white hover:bg-white/5 hover:scale-110 transition-all duration-300"
                 aria-label={`Find me on ${social.name}`}
               >
                 {getSocialIcon(social.iconName)}
