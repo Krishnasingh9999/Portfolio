@@ -47,8 +47,8 @@ const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-gray-950/90 backdrop-blur-md shadow-lg border-b border-gray-900/50 py-4'
+        isScrolled || isOpen
+          ? 'bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-slate-900 py-4'
           : 'bg-transparent py-6'
       }`}
     >
@@ -121,18 +121,18 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden border-t border-gray-100 dark:border-gray-900/50 bg-white dark:bg-gray-950 shadow-inner overflow-hidden"
+            className="absolute top-full left-0 right-0 md:hidden border-t border-slate-900 bg-gray-950/95 backdrop-blur-md shadow-lg overflow-hidden"
           >
-            <nav className="flex flex-col px-4 py-4 space-y-4">
+            <nav className="flex flex-col px-6 py-5 space-y-4">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`text-base font-medium py-2 transition-colors duration-300 ${
+                  className={`text-base font-semibold py-2 transition-colors duration-300 ${
                     activeId === link.id
-                      ? 'text-indigo-600 dark:text-indigo-400 border-l-2 border-indigo-600 pl-2'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white pl-2'
+                      ? 'text-indigo-400 border-l-2 border-indigo-500 pl-3'
+                      : 'text-gray-300 hover:text-white pl-3'
                   }`}
                 >
                   {link.name}
