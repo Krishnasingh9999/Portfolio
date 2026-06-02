@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiDownload } from 'react-icons/fi';
+import { FiDownload, FiHome, FiUser, FiCpu, FiFolder, FiBookOpen, FiAward, FiMail } from 'react-icons/fi';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
 
 const Navbar: React.FC = () => {
@@ -10,13 +11,13 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Education', id: 'education' },
-    { name: 'Achievements', id: 'achievements' },
-    { name: 'Contact', id: 'contact' },
+    { name: 'Home', id: 'home', icon: <FiHome className="w-5 h-5" /> },
+    { name: 'About', id: 'about', icon: <FiUser className="w-5 h-5" /> },
+    { name: 'Skills', id: 'skills', icon: <FiCpu className="w-5 h-5" /> },
+    { name: 'Projects', id: 'projects', icon: <FiFolder className="w-5 h-5" /> },
+    { name: 'Education', id: 'education', icon: <FiBookOpen className="w-5 h-5" /> },
+    { name: 'Achievements', id: 'achievements', icon: <FiAward className="w-5 h-5" /> },
+    { name: 'Contact', id: 'contact', icon: <FiMail className="w-5 h-5" /> },
   ];
 
   const activeId = useScrollSpy(navLinks.map((link) => link.id));
@@ -121,7 +122,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 md:hidden"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
           />
         )}
       </AnimatePresence>
@@ -134,33 +135,75 @@ const Navbar: React.FC = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3, ease: 'easeOut' }}
-            className="fixed top-0 right-0 bottom-0 w-72 z-50 md:hidden bg-gray-950/98 backdrop-blur-md shadow-2xl border-l border-slate-900 flex flex-col p-6 pt-24"
+            className="fixed top-0 right-0 bottom-0 w-72 z-50 md:hidden bg-gray-950 border-l border-slate-800 flex flex-col p-6 pt-24"
           >
             {/* Close Button Inside Drawer */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 p-2 rounded-lg bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800 transition-colors duration-200"
+              className="absolute top-5 right-5 p-2 rounded-xl bg-slate-900 border border-slate-800 text-gray-400 hover:text-white hover:bg-slate-800 transition-colors duration-200"
               aria-label="Close menu"
             >
               <HiX className="w-6 h-6" />
             </button>
 
-            <nav className="flex flex-col space-y-6">
+            <nav className="flex flex-col space-y-3.5">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`text-lg font-semibold py-1.5 transition-colors duration-300 ${
+                  className={`flex items-center text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
                     activeId === link.id
-                      ? 'text-indigo-400 border-l-2 border-indigo-500 pl-4'
-                      : 'text-gray-300 hover:text-white pl-4'
+                      ? 'text-indigo-400 bg-indigo-500/10 border border-indigo-500/20'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
                   }`}
                 >
-                  {link.name}
+                  {link.icon}
+                  <span className="ml-3">{link.name}</span>
                 </a>
               ))}
             </nav>
+
+            {/* Resume Button & Social Links at bottom of mobile menu */}
+            <div className="mt-auto pt-6 border-t border-slate-800 flex flex-col gap-6">
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 rounded-xl font-medium text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20"
+              >
+                <FiDownload className="w-4 h-4" />
+                <span>Download Resume</span>
+              </a>
+
+              <div className="flex items-center justify-center gap-5 text-gray-400">
+                <a
+                  href="https://github.com/KrishnaSingh9999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors duration-200"
+                  aria-label="GitHub"
+                >
+                  <FaGithub className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/krishnasingh9811/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="mailto:krishna1863singh@gmail.com"
+                  className="hover:text-white transition-colors duration-200"
+                  aria-label="Email"
+                >
+                  <FiMail className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
