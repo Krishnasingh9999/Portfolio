@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
               Hi, I'm
             </span>
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
-              Krishna Singh
+              Krishna
             </h1>
 
             {/* Dynamic Role Container */}
