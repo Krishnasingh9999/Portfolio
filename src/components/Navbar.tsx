@@ -71,12 +71,10 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
-        isOpen ? 'z-30' : 'z-50'
-      } ${
+      className={`fixed top-0 left-0 right-0 transition-all duration-300 z-50 ${
         isScrolled
-          ? 'bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-slate-900 py-4'
-          : 'bg-transparent py-6'
+          ? 'bg-gray-950 border-b border-slate-900 py-4 shadow-lg md:bg-gray-950/95 md:backdrop-blur-md'
+          : 'bg-gray-950 border-b border-slate-900 py-4 shadow-md md:bg-transparent md:border-transparent md:shadow-none md:py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
