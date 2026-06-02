@@ -70,190 +70,193 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-300 z-50 ${
-        isScrolled
-          ? 'bg-gray-950 border-b border-slate-900 py-4 shadow-lg md:bg-gray-950/95 md:backdrop-blur-md'
-          : 'bg-gray-950 border-b border-slate-900 py-4 shadow-md md:bg-transparent md:border-transparent md:shadow-none md:py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo / Brand Name */}
-        <a
-          href="#home"
-          onClick={(e) => handleNavClick(e, 'home')}
-          className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300"
-        >
-          Krishna<span className="text-indigo-500">.</span>
-        </a>
-
-        {/* Desktop Navigation Links & Download Button */}
-        <div className="hidden md:flex items-center md:gap-4 lg:gap-6 xl:gap-8">
-          <nav className="flex items-center md:space-x-3.5 lg:space-x-6 xl:space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={(e) => handleNavClick(e, link.id)}
-                className={`relative py-1.5 md:text-xs lg:text-sm font-medium transition-colors duration-300 ${
-                  activeId === link.id
-                    ? 'text-indigo-400'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                {link.name}
-                {activeId === link.id && (
-                  <motion.span
-                    layoutId="activeSection"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            ))}
-          </nav>
-
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 z-50 ${
+          isScrolled
+            ? 'bg-gray-950 border-b border-slate-900 py-4 shadow-lg md:bg-gray-950/95 md:backdrop-blur-md'
+            : 'bg-gray-950 border-b border-slate-900 py-4 shadow-md md:bg-transparent md:border-transparent md:shadow-none md:py-6'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Logo / Brand Name */}
           <a
-            href={personalInfo.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="md:px-3 md:py-1.5 lg:px-4 lg:py-2 rounded-lg font-medium md:text-xs lg:text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center gap-1.5 lg:gap-2 shadow-md shadow-indigo-500/20 shrink-0"
+            href="#home"
+            onClick={(e) => handleNavClick(e, 'home')}
+            className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300"
           >
-            <FiDownload className="w-4 h-4 shrink-0" />
-            <span>
-              <span className="hidden lg:inline">Download </span>Resume
-            </span>
+            Krishna<span className="text-indigo-500">.</span>
           </a>
-        </div>
 
-        {/* Mobile controls */}
-        <div className="flex items-center md:hidden space-x-4">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg text-gray-300 hover:text-white transition-colors duration-300"
-            aria-label="Toggle mobile navigation menu"
-          >
-            {isOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Backdrop for Mobile Sidebar Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Drawer Menu (Slides in from the right) */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-0 right-0 bottom-0 w-80 z-50 md:hidden bg-gray-950 border-l border-slate-900 flex flex-col p-6 pt-6"
-          >
-            {/* Drawer Header (Logo & Close Button) */}
-            <div className="flex items-center justify-between pb-6 border-b border-slate-900/80 mb-6">
-              <span className="text-xl font-bold tracking-tight text-white">
-                Krishna<span className="text-indigo-500">.</span>
-              </span>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-xl bg-gray-900 border border-slate-800 text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label="Close menu"
-              >
-                <HiX className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Navigation links list */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              className="flex flex-col space-y-3"
-            >
+          {/* Desktop Navigation Links & Download Button */}
+          <div className="hidden md:flex items-center md:gap-4 lg:gap-6 xl:gap-8">
+            <nav className="flex items-center md:space-x-3.5 lg:space-x-6 xl:space-x-8">
               {navLinks.map((link) => (
-                <motion.a
-                  variants={itemVariants}
+                <a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`flex items-center text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
+                  className={`relative py-1.5 md:text-xs lg:text-sm font-medium transition-colors duration-300 ${
                     activeId === link.id
-                      ? 'text-indigo-400 bg-indigo-500/10 border border-indigo-500/20'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
+                      ? 'text-indigo-400'
+                      : 'text-gray-400 hover:text-white'
                   }`}
                 >
-                  {link.icon}
-                  <span className="ml-3">{link.name}</span>
-                </motion.a>
+                  {link.name}
+                  {activeId === link.id && (
+                    <motion.span
+                      layoutId="activeSection"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </a>
               ))}
-            </motion.div>
+            </nav>
 
-            {/* Resume Button & Social Links at bottom of mobile menu */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              className="mt-auto pt-6 border-t border-slate-900 flex flex-col gap-6"
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="md:px-3 md:py-1.5 lg:px-4 lg:py-2 rounded-lg font-medium md:text-xs lg:text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center gap-1.5 lg:gap-2 shadow-md shadow-indigo-500/20 shrink-0"
             >
-              <motion.div variants={itemVariants}>
-                <a
-                  href={personalInfo.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl font-medium text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20"
+              <FiDownload className="w-4 h-4 shrink-0" />
+              <span>
+                <span className="hidden lg:inline">Download </span>Resume
+              </span>
+            </a>
+          </div>
+
+          {/* Mobile controls */}
+          <div className="flex items-center md:hidden space-x-4">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg text-gray-300 hover:text-white transition-colors duration-300"
+              aria-label="Toggle mobile navigation menu"
+            >
+              {isOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Menu (Outside header context to prevent layout/z-index issues) */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop for Mobile Sidebar Menu */}
+            <motion.div
+              key="mobile-nav-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 md:hidden"
+            />
+
+            {/* Mobile Drawer Menu (Slides in from the right) */}
+            <motion.div
+              key="mobile-nav-drawer"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-0 right-0 bottom-0 w-80 z-50 md:hidden bg-gray-950 border-l border-slate-900 flex flex-col p-6 pt-6"
+            >
+              {/* Drawer Header (Logo & Close Button) */}
+              <div className="flex items-center justify-between pb-6 border-b border-slate-900/80 mb-6">
+                <span className="text-xl font-bold tracking-tight text-white">
+                  Krishna<span className="text-indigo-500">.</span>
+                </span>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 rounded-xl bg-gray-900 border border-slate-800 text-gray-400 hover:text-white transition-colors duration-200"
+                  aria-label="Close menu"
                 >
-                  <FiDownload className="w-4 h-4" />
-                  <span>Download Resume</span>
-                </a>
+                  <HiX className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Navigation links list */}
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+                className="flex flex-col space-y-3"
+              >
+                {navLinks.map((link) => (
+                  <motion.a
+                    variants={itemVariants}
+                    key={link.id}
+                    href={`#${link.id}`}
+                    onClick={(e) => handleNavClick(e, link.id)}
+                    className={`flex items-center text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
+                      activeId === link.id
+                        ? 'text-indigo-400 bg-indigo-500/10 border border-indigo-500/20'
+                        : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
+                    }`}
+                  >
+                    {link.icon}
+                    <span className="ml-3">{link.name}</span>
+                  </motion.a>
+                ))}
               </motion.div>
 
+              {/* Resume Button & Social Links at bottom of mobile menu */}
               <motion.div
-                variants={itemVariants}
-                className="flex items-center justify-center gap-5 text-gray-400"
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+                className="mt-auto pt-6 border-t border-slate-900 flex flex-col gap-6"
               >
-                <a
-                  href="https://github.com/KrishnaSingh9999"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-indigo-400 transition-colors duration-200"
-                  aria-label="GitHub"
+                <motion.div variants={itemVariants}>
+                  <a
+                    href={personalInfo.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 rounded-xl font-medium text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20"
+                  >
+                    <FiDownload className="w-4 h-4" />
+                    <span>Download Resume</span>
+                  </a>
+                </motion.div>
+
+                <motion.div
+                  variants={itemVariants}
+                  className="flex items-center justify-center gap-5 text-gray-400"
                 >
-                  <FaGithub className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/krishnasingh9811/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-indigo-400 transition-colors duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="mailto:krishna1863singh@gmail.com"
-                  className="hover:text-indigo-400 transition-colors duration-200"
-                  aria-label="Email"
-                >
-                  <FiMail className="w-5 h-5" />
-                </a>
+                  <a
+                    href="https://github.com/KrishnaSingh9999"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-indigo-400 transition-colors duration-200"
+                    aria-label="GitHub"
+                  >
+                    <FaGithub className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/krishnasingh9811/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-indigo-400 transition-colors duration-200"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="mailto:krishna1863singh@gmail.com"
+                    className="hover:text-indigo-400 transition-colors duration-200"
+                    aria-label="Email"
+                  >
+                    <FiMail className="w-5 h-5" />
+                  </a>
+                </motion.div>
               </motion.div>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
