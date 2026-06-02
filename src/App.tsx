@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 
+
 // Lazy load sections for optimized page performance and code splitting
 const Navbar = lazy(() => import('./components/Navbar'));
 const Hero = lazy(() => import('./components/Hero'));
