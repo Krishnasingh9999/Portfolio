@@ -4,7 +4,7 @@ export const personalInfo = {
   name: "Krishna Singh",
   roles: ["MERN Stack Developer", "Full Stack Developer", "Software Engineer"],
   tagline: "I build real-time, scalable and user-friendly web applications. Passionate about clean code, data structures and solving real-world problems.",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "https://drive.google.com/file/d/19px6_U6Js1EnCj3aiLq_GOsf6OFedfGg/view?usp=sharing",
   bioParagraphs: [
     "I am a MERN Stack Developer and Computer Science undergraduate with hands-on experience building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Skilled in REST API development, responsive UI design, authentication, debugging, performance optimization, and database management.",
     "Currently pursuing my Bachelor of Technology in Computer Science & Engineering (2022 - 2026) at KCC Institute of Technology and Management, Greater Noida (U.P), I maintain a strong foundation in core computer science subjects like Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, Computer Networks, System Design, and Software Engineering.",
