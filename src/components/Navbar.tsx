@@ -71,10 +71,10 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isOpen
-          ? 'bg-gray-950'
-          : isScrolled
+      className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
+        isOpen ? 'z-30' : 'z-50'
+      } ${
+        isScrolled
           ? 'bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-slate-900 py-4'
           : 'bg-transparent py-6'
       }`}
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, 'home')}
-          className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300 z-50"
+          className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300"
         >
           Krishna<span className="text-indigo-500">.</span>
         </a>
@@ -129,7 +129,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex items-center md:hidden space-x-4 z-50">
+        <div className="flex items-center md:hidden space-x-4">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-lg text-gray-300 hover:text-white transition-colors duration-300"
@@ -140,22 +140,49 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay (Slides down from the top) */}
+      {/* Backdrop for Mobile Sidebar Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ y: '-100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '-100%' }}
-            transition={{ type: 'tween', duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 md:hidden bg-gray-950 flex flex-col px-6 pt-28 pb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Drawer Menu (Slides in from the right) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed top-0 right-0 bottom-0 w-80 z-50 md:hidden bg-gray-950 border-l border-slate-900 flex flex-col p-6 pt-6"
           >
-            {/* Navigation links centered vertically */}
+            {/* Drawer Header (Logo & Close Button) */}
+            <div className="flex items-center justify-between pb-6 border-b border-slate-900/80 mb-6">
+              <span className="text-xl font-bold tracking-tight text-white">
+                Krishna<span className="text-indigo-500">.</span>
+              </span>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 rounded-xl bg-gray-900 border border-slate-800 text-gray-400 hover:text-white transition-colors duration-200"
+                aria-label="Close menu"
+              >
+                <HiX className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Navigation links list */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="show"
-              className="flex flex-col space-y-5 my-auto text-center"
+              className="flex flex-col space-y-3"
             >
               {navLinks.map((link) => (
                 <motion.a
@@ -163,65 +190,67 @@ const Navbar: React.FC = () => {
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`text-2xl font-bold tracking-tight py-1.5 transition-colors duration-300 ${
+                  className={`flex items-center text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
                     activeId === link.id
-                      ? 'text-indigo-400'
-                      : 'text-gray-300 hover:text-white'
+                      ? 'text-indigo-400 bg-indigo-500/10 border border-indigo-500/20'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
                   }`}
                 >
-                  {link.name}
+                  {link.icon}
+                  <span className="ml-3">{link.name}</span>
                 </motion.a>
               ))}
+            </motion.div>
 
-              {/* Resume Button in Mobile Menu */}
-              <motion.div variants={itemVariants} className="pt-4 flex justify-center">
+            {/* Resume Button & Social Links at bottom of mobile menu */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="mt-auto pt-6 border-t border-slate-900 flex flex-col gap-6"
+            >
+              <motion.div variants={itemVariants}>
                 <a
                   href={personalInfo.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-xl font-semibold text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20"
+                  className="w-full py-3 rounded-xl font-medium text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20"
                 >
                   <FiDownload className="w-4 h-4" />
                   <span>Download Resume</span>
                 </a>
               </motion.div>
-            </motion.div>
 
-            {/* Social Icons at bottom of overlay */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              className="mt-auto pt-6 border-t border-slate-900 flex justify-center gap-6 text-gray-400"
-            >
-              <motion.a
+              <motion.div
                 variants={itemVariants}
-                href="https://github.com/KrishnaSingh9999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-200"
-                aria-label="GitHub"
+                className="flex items-center justify-center gap-5 text-gray-400"
               >
-                <FaGithub className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                variants={itemVariants}
-                href="https://www.linkedin.com/in/krishnasingh9811/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-200"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                variants={itemVariants}
-                href="mailto:krishna1863singh@gmail.com"
-                className="hover:text-white transition-colors duration-200"
-                aria-label="Email"
-              >
-                <FiMail className="w-5 h-5" />
-              </motion.a>
+                <a
+                  href="https://github.com/KrishnaSingh9999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-indigo-400 transition-colors duration-200"
+                  aria-label="GitHub"
+                >
+                  <FaGithub className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/krishnasingh9811/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-indigo-400 transition-colors duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="mailto:krishna1863singh@gmail.com"
+                  className="hover:text-indigo-400 transition-colors duration-200"
+                  aria-label="Email"
+                >
+                  <FiMail className="w-5 h-5" />
+                </a>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
