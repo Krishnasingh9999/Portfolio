@@ -5,7 +5,8 @@ import { FiExternalLink } from 'react-icons/fi';
 
 const Experience: React.FC = () => {
   return (
-    <section id="education" className="py-20 bg-[#07080e] relative overflow-hidden">
+    <>
+      <section id="education" className="py-20 bg-[#07080e] relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -82,14 +83,20 @@ const Experience: React.FC = () => {
           </div>
         </div>
 
-        {/* Certificates & Achievements Subsection */}
+      </div>
+    </section>
+
+    <section id="achievements" className="py-20 bg-[#07080e] relative overflow-hidden border-t border-slate-900">
+      {/* Background accents */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
-          id="certificates"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-20 pt-10 border-t border-slate-800"
         >
           <h3 className="text-xl font-bold text-white tracking-wider mb-8 text-center sm:text-left">
             Certificates & Achievements
@@ -138,9 +145,9 @@ const Experience: React.FC = () => {
             })}
           </div>
         </motion.div>
-
       </div>
     </section>
+    </>
   );
 };
 
