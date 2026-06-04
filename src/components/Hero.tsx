@@ -189,7 +189,7 @@ const Hero: React.FC = () => {
               <div className="flex flex-col gap-4 text-gray-300 w-full max-w-[260px] mx-auto">
                 <div className="flex items-center gap-3">
                   <FiMapPin className="text-gray-400 w-5 h-5 shrink-0" />
-                  <span className="text-sm font-medium text-gray-300">Noida, India</span>
+                  <span className="text-sm font-medium text-gray-300">Noida, Uttar Pradesh, India</span>
                 </div>
                 <div className="flex items-center gap-3 text-[#10B981]">
                   <FiBriefcase className="w-5 h-5 shrink-0 text-[#10B981]" />
