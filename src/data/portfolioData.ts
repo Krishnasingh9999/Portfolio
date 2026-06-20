@@ -1,10 +1,10 @@
 import { Project, SkillCategory, Experience, SocialLink } from '../types';
 
 export const personalInfo = {
-  name: "Krishna Singh",
-  roles: ["MERN Stack Developer", "Full Stack Developer", "Software Engineer"],
+  name: "Krishna",
+  roles: ["Full Stack Developer (MERN)", "Software Engineer"],
   tagline: "Full Stack Developer specializing in building high-performance MERN applications, real-time collaboration engines, and scalable backend architectures. Committed to writing clean, type-safe code and solving complex algorithm challenges.",
-  resumeUrl: "https://drive.google.com/file/d/1R1AATNYh9tn9CLWktdz1FCc-S0i6SoQg/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/18Us3MMNdcQVR78tX1e6VDb8UW68HNmeS/view?usp=sharing",
   bioParagraphs: [
     "I am a passionate Full Stack Developer and Computer Science undergraduate specializing in the MERN stack (MongoDB, Express.js, React, Node.js). With practical experience building production-ready applications, I focus on designing low-latency RESTful APIs, responsive frontend architectures, and secure authentication systems.",
     "Currently pursuing a Bachelor of Technology in Computer Science & Engineering (2022 - 2026) at KCC Institute of Technology and Management (Greater Noida), I maintain a robust academic foundation in Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Management, Operating Systems, and Software Engineering.",
