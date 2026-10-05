@@ -43,16 +43,16 @@ const FeaturedProject: React.FC = () => {
                 className="bg-gray-50/50 dark:bg-[#0d0f1a]/80 backdrop-blur-md border border-gray-200 dark:border-slate-800 rounded-3xl p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-8 relative hover:border-indigo-500/30 dark:hover:border-indigo-500/30 transition-all duration-300 group shadow-lg dark:shadow-2xl"
               >
                 {/* Left Side: Screenshot Image / Visual Banner */}
-                <div className="w-full lg:w-[45%] shrink-0 relative rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800/80 bg-gray-100 dark:bg-slate-950 flex items-center justify-center min-h-[220px]">
+                <div className="w-full lg:w-[42%] shrink-0 relative rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800/80 bg-gray-100 dark:bg-slate-950 flex items-center justify-center self-start">
                   <img
                     src={image || "/medidost_landscape.png"}
                     alt={`${title} Preview`}
-                    className="w-full h-auto object-cover block group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-cover block group-hover:scale-[1.02] transition-transform duration-500 shadow-md"
                   />
                 </div>
 
                 {/* Right Side: Details */}
-                <div className="flex-1 flex flex-col items-start text-left relative lg:pr-12">
+                <div className="flex-1 flex flex-col items-start text-left relative lg:pr-8 w-full">
                   {/* Featured Badge */}
                   <span className="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-indigo-100 dark:bg-[#1f1638] text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 mb-3.5">
                     Featured Project
@@ -64,12 +64,28 @@ const FeaturedProject: React.FC = () => {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-5 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
                     {description}
                   </p>
 
+                  {/* Bullet Points */}
+                  {project.bullets && (
+                    <ul className="space-y-2 mb-6 text-xs sm:text-sm text-gray-400 list-none text-left w-full">
+                      {project.bullets.map((bullet, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
+                          <span className="text-indigo-400 font-bold mt-0.5 flex-shrink-0 text-sm">
+                            ▹
+                          </span>
+                          <span className="text-gray-300 font-normal">
+                            {bullet.replace(/\*\*/g, '')}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
                   {/* Tech Badges */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
                     {tech.map((techItem) => (
                       <span
                         key={techItem}

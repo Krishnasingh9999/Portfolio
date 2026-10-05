@@ -156,7 +156,7 @@ export const projects: Project[] = [
     tech: ["React 19", "Node.js", "Express.js", "TypeScript", "Socket.io", "WebRTC", "RabbitMQ", "Redis", "MongoDB", "Docker", "TailwindCSS"],
     github: "https://github.com/Krishnasingh9999/ChatSphere",
     live: "https://chatsphere-live.duckdns.org",
-    image: "/chatsphere_landscape.svg",
+    image: "/chatsphere_landscape.png",
     featured: true
   },
   {
