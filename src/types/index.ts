@@ -27,6 +27,17 @@ export interface Experience {
   company: string;
   location: string;
   dateRange: string;
+  type?: string;
+  achievements: string[];
+}
+
+export interface Education {
+  id: string;
+  degree: string;
+  institution: string;
+  location: string;
+  dateRange: string;
+  grade?: string;
   achievements: string[];
 }
 

@@ -130,8 +130,8 @@ const Hero: React.FC = () => {
             {/* View My Work & Contact Me Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8 w-full sm:w-auto">
               <a
-                href="#projects"
-                onClick={(e) => handleScrollToSection(e, 'projects')}
+                href="#featured"
+                onClick={(e) => handleScrollToSection(e, 'featured')}
                 className="w-full sm:w-auto px-6 py-3 rounded-lg font-medium text-white bg-[#4F46E5] hover:bg-[#4338CA] transition-all flex items-center justify-center gap-2"
               >
                 View My Work <span className="text-lg leading-none">&rarr;</span>

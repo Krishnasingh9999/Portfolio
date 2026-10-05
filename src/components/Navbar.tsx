@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiDownload, FiHome, FiUser, FiCpu, FiFolder, FiBookOpen, FiAward, FiMail } from 'react-icons/fi';
+import { FiDownload, FiHome, FiUser, FiCpu, FiFolder, FiBriefcase, FiBookOpen, FiAward, FiMail } from 'react-icons/fi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
 
@@ -39,7 +39,8 @@ const Navbar: React.FC = () => {
     { name: 'Home', id: 'home', icon: <FiHome className="w-5 h-5" /> },
     { name: 'About', id: 'about', icon: <FiUser className="w-5 h-5" /> },
     { name: 'Skills', id: 'skills', icon: <FiCpu className="w-5 h-5" /> },
-    { name: 'Projects', id: 'projects', icon: <FiFolder className="w-5 h-5" /> },
+    { name: 'Projects', id: 'featured', icon: <FiFolder className="w-5 h-5" /> },
+    { name: 'Experience', id: 'experience', icon: <FiBriefcase className="w-5 h-5" /> },
     { name: 'Education', id: 'education', icon: <FiBookOpen className="w-5 h-5" /> },
     { name: 'Achievements', id: 'achievements', icon: <FiAward className="w-5 h-5" /> },
     { name: 'Contact', id: 'contact', icon: <FiMail className="w-5 h-5" /> },

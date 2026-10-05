@@ -1,4 +1,4 @@
-import { Project, SkillCategory, Experience, SocialLink } from '../types';
+import { Project, SkillCategory, Experience, Education, SocialLink } from '../types';
 
 export const personalInfo = {
   name: "Krishna",
@@ -193,20 +193,39 @@ export const projects: Project[] = [
 
 export const experiences: Experience[] = [
   {
+    id: "exp-1",
+    role: "Java Web Developer with AI",
+    company: "HCLTech",
+    type: "Apprenticeship",
+    location: "Gautam Buddha Nagar, Uttar Pradesh, India · On-site",
+    dateRange: "Nov 2024 - Mar 2025 · 5 mos",
+    achievements: [
+      "Developed an E-commerce website using Java, MySQL, JSP and Servlets.",
+      "Worked on real-world JDBC and Database Connectivity projects.",
+      "Implemented MVC architecture using Servlets and JSP.",
+      "Gained full-stack development experience by integrating frontend (HTML, CSS, JS) with backend (Java, MySQL)."
+    ]
+  }
+];
+
+export const educations: Education[] = [
+  {
     id: "edu-1",
-    role: "Bachelor of Technology in Computer Science & Engineering",
-    company: "KCC Institute of Technology and Management",
+    degree: "Bachelor of Technology in Computer Science & Engineering",
+    institution: "KCC Institute of Technology and Management",
     location: "Greater Noida (U.P)",
     dateRange: "2022 - 2026",
+    grade: "CGPA: 7.6 / 10 (First Division with Distinction)",
     achievements: [
-      "Developed full-stack web platforms using MongoDB, Express, React, Node, Socket.io, and Redis.",
-      "Studied core subjects: DSA, OOP, DBMS, Operating Systems, Computer Networks, System Design, and Software Engineering."
+      "CGPA: 7.6 / 10 — First Division with Distinction.",
+      "Studied core CS subjects: DSA, OOP, DBMS, Operating Systems, Computer Networks, System Design, and Software Engineering.",
+      "Developed full-stack web platforms using MongoDB, Express, React, Node, Socket.io, and Redis."
     ]
   },
   {
     id: "edu-2",
-    role: "Higher Secondary (Class XII) | CBSE",
-    company: "YSY International School",
+    degree: "Higher Secondary (Class XII) | CBSE",
+    institution: "YSY International School",
     location: "Greater Noida (U.P)",
     dateRange: "2021 - 2022",
     achievements: [
@@ -215,8 +234,8 @@ export const experiences: Experience[] = [
   },
   {
     id: "edu-3",
-    role: "High School (Class X) | CBSE",
-    company: "Rao Balaram Public School",
+    degree: "High School (Class X) | CBSE",
+    institution: "Rao Balaram Public School",
     location: "Najafgarh (Delhi)",
     dateRange: "2019 - 2020",
     achievements: [

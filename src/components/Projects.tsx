@@ -22,6 +22,8 @@ const Projects: React.FC = () => {
     },
   };
 
+  const otherProjects = projects.filter((p) => !p.featured);
+
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-950/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,9 +48,9 @@ const Projects: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
         >
-          {projects.map((project) => (
+          {otherProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={cardVariants}
