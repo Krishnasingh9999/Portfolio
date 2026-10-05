@@ -17,6 +17,7 @@ export interface Project {
   github: string;
   live: string;
   liveAdmin?: string;
+  image?: string;
   featured: boolean;
 }
 

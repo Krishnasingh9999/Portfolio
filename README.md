@@ -14,7 +14,7 @@ Built with a responsive, premium cosmic dark theme, smooth motion transitions, a
 *   **Slide-In Mobile Navigation**: Custom drawer menu sliding in from the right viewport (`x: '100%'` to `x: 0`) with synchronized backdrop blur and staggered animation entries.
 *   **Dynamic Scroll Spy**: Tracks user scrolling in real-time, automatically highlighting active sections in the desktop and mobile navigation lists.
 *   **Interactive Hero Section**: Includes a smooth typewriter role animator and a floating user card containing quick stats (DSA solutions, certifications, B.Tech info).
-*   **Recruiter Focused Projects Grid**: Highlights core projects (MediDost, SyncTube, Java E-Commerce Engine) using detailed, impact-oriented bullet points outlining system architectures.
+*   **Recruiter Focused Projects Grid**: Highlights core projects (MediDost, ChatSphere, SyncTube, Java E-Commerce Engine) using detailed, impact-oriented bullet points outlining system architectures.
 *   **Fully Type-Safe & Build Verified**: Written entirely in TypeScript with strict compile-time verification.
 *   **Optimized Performance**: Code-splitting using `React.lazy` and `Suspense` for faster initial page loads and high Lighthouse scores.
 

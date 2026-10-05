@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" />
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="200" cy="150" r="120" fill="#6366f1" opacity="0.12" filter="url(#glow)" />
+  <circle cx="600" cy="300" r="140" fill="#ec4899" opacity="0.1" filter="url(#glow)" />
+
+  <!-- Grid Pattern -->
+  <g opacity="0.05" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="75" x2="800" y2="75" />
+    <line x1="0" y1="150" x2="800" y2="150" />
+    <line x1="0" y1="225" x2="800" y2="225" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="375" x2="800" y2="375" />
+    <line x1="100" y1="0" x2="100" y2="450" />
+    <line x1="200" y1="0" x2="200" y2="450" />
+    <line x1="300" y1="0" x2="300" y2="450" />
+    <line x1="400" y1="0" x2="400" y2="450" />
+    <line x1="500" y1="0" x2="500" y2="450" />
+    <line x1="600" y1="0" x2="600" y2="450" />
+    <line x1="700" y1="0" x2="700" y2="450" />
+  </g>
+
+  <!-- Mock App Window -->
+  <g transform="translate(60, 45)">
+    <!-- Window Outer Shell -->
+    <rect width="680" height="360" rx="16" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Window Header -->
+    <rect width="680" height="40" rx="16" fill="#0f172a" />
+    <rect y="20" width="680" height="20" fill="#0f172a" />
+    <line x1="0" y1="40" x2="680" y2="40" stroke="#1e293b" stroke-width="1" />
+    
+    <!-- Window Control Dots -->
+    <circle cx="25" cy="20" r="5" fill="#ef4444" />
+    <circle cx="42" cy="20" r="5" fill="#eab308" />
+    <circle cx="59" cy="20" r="5" fill="#22c55e" />
+
+    <!-- Window Title -->
+    <text x="340" y="25" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">ChatSphere • Microservices Real-Time Hub</text>
+
+    <!-- App Content Layout -->
+    <!-- Left Sidebar (Chats list) -->
+    <rect x="0" y="40" width="200" height="320" fill="#0b0f19" opacity="0.6" />
+    <line x1="200" y1="40" x2="200" y2="360" stroke="#1e293b" stroke-width="1" />
+
+    <!-- Sidebar Header Search -->
+    <rect x="15" y="55" width="170" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+    <text x="30" y="73" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Search contacts...</text>
+
+    <!-- Chat Items in Sidebar -->
+    <!-- Active Chat Item -->
+    <rect x="10" y="95" width="180" height="48" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
+    <circle cx="34" cy="119" r="14" fill="#6366f1" />
+    <text x="34" y="123" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">JD</text>
+    <circle cx="44" cy="129" r="4" fill="#22c55e" stroke="#1e1b4b" stroke-width="1.5" />
+    <text x="56" y="114" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">John Doe</text>
+    <text x="56" y="130" fill="#818cf8" font-family="system-ui, sans-serif" font-size="10">typing...</text>
+
+    <!-- Inactive Chat Item 1 -->
+    <circle cx="34" cy="172" r="14" fill="#334155" />
+    <text x="34" y="176" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">AS</text>
+    <text x="56" y="167" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" font-weight="500">Alex Smith</text>
+    <text x="56" y="183" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Let's connect via WebRTC</text>
+
+    <!-- Inactive Chat Item 2 -->
+    <circle cx="34" cy="225" r="14" fill="#334155" />
+    <text x="34" y="229" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">EM</text>
+    <text x="56" y="220" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" font-weight="500">Emma Watson</text>
+    <text x="56" y="236" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">OTP received via RabbitMQ</text>
+
+    <!-- Main Chat Area -->
+    <!-- Chat Header -->
+    <rect x="200" y="40" width="480" height="50" fill="#0f172a" />
+    <line x1="200" y1="90" x2="680" y2="90" stroke="#1e293b" stroke-width="1" />
+    <circle cx="230" cy="65" r="15" fill="#6366f1" />
+    <text x="230" y="70" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">JD</text>
+    <text x="255" y="62" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="600">John Doe</text>
+    <text x="255" y="76" fill="#22c55e" font-family="system-ui, sans-serif" font-size="10">● Online | P2P Ready</text>
+
+    <!-- Calling Buttons (WebRTC) -->
+    <rect x="580" y="52" width="36" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+    <path d="M593 61 L603 61 L603 69 L593 69 Z M603 63 L608 60 L608 70 L603 67 Z" fill="#818cf8" />
+    
+    <rect x="625" y="52" width="36" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+    <circle cx="643" cy="65" r="6" stroke="#22c55e" stroke-width="1.5" fill="none" />
+
+    <!-- Chat Messages -->
+    <!-- Incoming Message -->
+    <rect x="220" y="110" width="240" height="42" rx="10" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+    <text x="232" y="128" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11">Hey Krishna! Is ChatSphere using</text>
+    <text x="232" y="142" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11">RabbitMQ for email dispatch?</text>
+    <text x="430" y="145" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">10:42 AM</text>
+
+    <!-- Outgoing Message -->
+    <rect x="420" y="165" width="240" height="54" rx="10" fill="#4338ca" stroke="#6366f1" stroke-width="0.8" />
+    <text x="432" y="183" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11">Yes! Microservices architecture with</text>
+    <text x="432" y="197" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11">RabbitMQ, Socket.io, &amp; WebRTC calls.</text>
+    <text x="432" y="211" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10">Zero-latency P2P video stream active.</text>
+    <text x="630" y="212" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="9">✓✓</text>
+
+    <!-- WebRTC Video Call Floating Widget -->
+    <g transform="translate(480, 230)">
+      <rect width="180" height="75" rx="10" fill="#090d16" stroke="#818cf8" stroke-width="1.5" opacity="0.95" />
+      <!-- Remote Video Box -->
+      <rect x="8" y="8" width="80" height="59" rx="6" fill="#1e1b4b" />
+      <circle cx="48" cy="35" r="12" fill="#6366f1" />
+      <text x="48" y="39" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">JD</text>
+      <!-- Local PIP Box -->
+      <rect x="58" y="42" width="26" height="21" rx="3" fill="#020617" stroke="#818cf8" stroke-width="0.8" />
+      <circle cx="71" cy="52" r="5" fill="#10b981" />
+      
+      <!-- Call Info -->
+      <text x="96" y="26" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="10" font-weight="700">WebRTC Live</text>
+      <text x="96" y="40" fill="#10b981" font-family="system-ui, sans-serif" font-size="9">04:18 • HD Video</text>
+      <rect x="96" y="48" width="45" height="15" rx="4" fill="#ef4444" />
+      <text x="118" y="59" fill="#ffffff" font-family="system-ui, sans-serif" font-size="8" font-weight="600" text-anchor="middle">End Call</text>
+    </g>
+
+    <!-- Bottom Input Bar -->
+    <rect x="200" y="315" width="480" height="45" fill="#0f172a" />
+    <line x1="200" y1="315" x2="680" y2="315" stroke="#1e293b" stroke-width="1" />
+    <rect x="220" y="323" width="390" height="28" rx="8" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+    <text x="235" y="341" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Type an encrypted message...</text>
+    <rect x="620" y="323" width="45" height="28" rx="8" fill="#6366f1" />
+    <text x="642" y="341" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">&gt;</text>
+  </g>
+
+  <!-- Modern Floating Technology Badges on Bottom Left/Right -->
+  <g transform="translate(90, 375)">
+    <rect width="105" height="24" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="0.8" />
+    <text x="52" y="391" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">⚡ Microservices</text>
+  </g>
+  <g transform="translate(205, 375)">
+    <rect width="100" height="24" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="0.8" />
+    <text x="50" y="391" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">📞 WebRTC P2P</text>
+  </g>
+  <g transform="translate(315, 375)">
+    <rect width="95" height="24" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="0.8" />
+    <text x="47" y="391" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">🐰 RabbitMQ</text>
+  </g>
+  <g transform="translate(420, 375)">
+    <rect width="90" height="24" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="0.8" />
+    <text x="45" y="391" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">🔒 SHA-512</text>
+  </g>
+</svg>

@@ -72,6 +72,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "JWT Authentication", iconName: "SiJsonwebtokens" },
       { name: "Redis", iconName: "SiRedis" },
       { name: "Socket.IO", iconName: "SiSocketdotio" },
+      { name: "WebRTC", iconName: "SiWebrtc" },
+      { name: "RabbitMQ", iconName: "SiRabbitmq" },
       { name: "REST APIs", iconName: "FaServer" },
       { name: "Java Servlets", iconName: "FaServer" },
       { name: "JSP", iconName: "FaCoffee" }
@@ -124,6 +126,41 @@ export const skillCategories: SkillCategory[] = [
 export const projects: Project[] = [
   {
     id: "project-1",
+    title: "MediDost - Smart Healthcare Platform",
+    description: "An intelligent healthcare assistance platform featuring AI-driven symptom diagnosis, medical records management, and role-based user portals.",
+    bullets: [
+      "Developed a full-stack healthcare ecosystem adhering to SDLC principles from requirement specification through integration testing to containerized deployment.",
+      "Integrated an AI symptom checker utilizing structured classification models to map symptoms and recommend localized specialized physicians.",
+      "Designed secure role-based access control (RBAC) dashboards for patients, doctors, and admins using JWT tokens and bcrypt password salting.",
+      "Optimized backend queries and database indexing, decreasing page initialization times by 15% and accommodating 200+ concurrent active connections.",
+      "Constructed a responsive, mobile-first frontend with cross-browser compatibility and smooth micro-animations."
+    ],
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "Socket.io", "Redis", "TailwindCSS", "JWT Authentication"],
+    github: "https://github.com/SmartHealthcareAssistant/A-Smart-Healthcare-Platform-MediDost",
+    live: "https://medi-dost-frontend.vercel.app/",
+    liveAdmin: "https://medidost-admin.onrender.com/admin/login",
+    image: "/medidost_landscape.png",
+    featured: true
+  },
+  {
+    id: "project-2",
+    title: "ChatSphere - Real-Time Messaging & Calling Platform",
+    description: "An event-driven distributed communication platform built with a microservices architecture supporting real-time chat, P2P WebRTC voice/video calls, and passwordless OTP login.",
+    bullets: [
+      "Architected an event-driven microservices backend (User, Mail, and Chat services) communicating asynchronously via RabbitMQ message broker and Socket.IO.",
+      "Engineered peer-to-peer voice and video calling using WebRTC and Google public STUN servers, with Picture-in-Picture (PIP) preview and media controls.",
+      "Implemented passwordless authentication with 6-digit email OTP dispatch using asynchronous RabbitMQ workers and Redis-backed rate limiting.",
+      "Built real-time delivery receipts (Sent, Delivered, Seen), live typing indicators, PBKDF2 SHA-512 encrypted secret vaults, and 24-hour status stories.",
+      "Containerized microservices with Docker & Docker Compose, configured Nginx reverse proxy with SSL, and deployed on cloud infrastructure."
+    ],
+    tech: ["React 19", "Node.js", "Express.js", "TypeScript", "Socket.io", "WebRTC", "RabbitMQ", "Redis", "MongoDB", "Docker", "TailwindCSS"],
+    github: "https://github.com/Krishnasingh9999/ChatSphere",
+    live: "https://chatsphere-live.duckdns.org",
+    image: "/chatsphere_landscape.svg",
+    featured: true
+  },
+  {
+    id: "project-3",
     title: "SyncTube - Real-Time Collaborative Watch Party Platform",
     description: "A synchronized media platform enabling multi-user real-time watch parties with bi-directional playback control and interactive chat rooms.",
     bullets: [
@@ -138,24 +175,7 @@ export const projects: Project[] = [
     featured: false
   },
   {
-    id: "project-2",
-    title: "MediDost - Smart Healthcare Platform",
-    description: "An intelligent healthcare assistance platform featuring AI-driven symptom diagnosis, medical records management, and role-based user portals.",
-    bullets: [
-      "Developed a full-stack healthcare ecosystem adhering to SDLC principles from requirement specification through integration testing to containerized deployment.",
-      "Integrated an AI symptom checker utilizing structured classification models to map symptoms and recommend localized specialized physicians.",
-      "Designed secure role-based access control (RBAC) dashboards for patients, doctors, and admins using JWT tokens and bcrypt password salting.",
-      "Optimized backend queries and database indexing, decreasing page initialization times by 15% and accommodating 200+ concurrent active connections.",
-      "Constructed a responsive, mobile-first frontend with cross-browser compatibility and smooth micro-animations."
-    ],
-    tech: ["React", "Node.js", "Express.js", "MongoDB", "Socket.io", "Redis", "TailwindCSS", "JWT Authentication"],
-    github: "https://github.com/SmartHealthcareAssistant/A-Smart-Healthcare-Platform-MediDost",
-    live: "https://medi-dost-frontend.vercel.app/",
-    liveAdmin: "https://medidost-admin.onrender.com/admin/login",
-    featured: true
-  },
-  {
-    id: "project-3",
+    id: "project-4",
     title: "Java E-Commerce Web Engine",
     description: "A high-performance e-commerce platform built with native Java web technologies, featuring secure session tracking and SQL-injection defense.",
     bullets: [

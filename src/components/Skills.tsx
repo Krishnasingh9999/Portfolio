@@ -48,6 +48,8 @@ import {
   SiGithubcopilot,
   SiGooglegemini,
   SiMysql,
+  SiRabbitmq,
+  SiWebrtc,
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
 
@@ -136,6 +138,10 @@ const Skills: React.FC = () => {
         return <FaProjectDiagram className="w-5 h-5 text-indigo-500" />;
       case 'FaLaptopCode':
         return <FaLaptopCode className="w-5 h-5 text-emerald-500" />;
+      case 'SiRabbitmq':
+        return <SiRabbitmq className="w-5 h-5 text-orange-600" />;
+      case 'SiWebrtc':
+        return <SiWebrtc className="w-5 h-5 text-blue-500" />;
       default:
         return null;
     }
