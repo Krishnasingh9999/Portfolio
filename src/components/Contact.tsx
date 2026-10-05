@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
                     ? 'border-red-500 focus:ring-red-200 dark:focus:ring-red-900/30'
                     : 'border-gray-200 dark:border-gray-800 focus:border-indigo-500 focus:ring-indigo-200 dark:focus:ring-indigo-900/30'
                 }`}
-                placeholder="Krishna Tripathi"
+                placeholder="Your Name"
               />
               {errors.name && <p className="text-red-500 text-xs mt-1.5">{errors.name}</p>}
             </div>
@@ -167,7 +167,7 @@ const Contact: React.FC = () => {
                     ? 'border-red-500 focus:ring-red-200 dark:focus:ring-red-900/30'
                     : 'border-gray-200 dark:border-gray-800 focus:border-indigo-500 focus:ring-indigo-200 dark:focus:ring-indigo-900/30'
                 }`}
-                placeholder="krishnatripathi@gmail.com"
+                placeholder="your.email@example.com"
               />
               {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email}</p>}
             </div>

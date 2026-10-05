@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useScrollSpy } from '../hooks/useScrollSpy';
+import { useTheme } from '../context/ThemeContext';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiDownload, FiHome, FiUser, FiCpu, FiFolder, FiBriefcase, FiBookOpen, FiAward, FiMail } from 'react-icons/fi';
+import { FiDownload, FiHome, FiUser, FiCpu, FiFolder, FiBriefcase, FiBookOpen, FiAward, FiMail, FiSun, FiMoon } from 'react-icons/fi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
-
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -34,6 +34,7 @@ const itemVariants = {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: 'Home', id: 'home', icon: <FiHome className="w-5 h-5" /> },
@@ -76,8 +77,8 @@ const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 transition-all duration-300 z-50 ${
           isScrolled
-            ? 'bg-gray-950 border-b border-slate-900 py-4 shadow-lg md:bg-gray-950/95 md:backdrop-blur-md'
-            : 'bg-gray-950 border-b border-slate-900 py-4 shadow-md md:bg-transparent md:border-transparent md:shadow-none md:py-6'
+            ? 'bg-white/95 dark:bg-gray-950/95 border-b border-gray-200 dark:border-slate-900 py-4 shadow-lg backdrop-blur-md'
+            : 'bg-white/80 dark:bg-gray-950/80 md:bg-transparent md:border-transparent md:shadow-none border-b border-gray-200 dark:border-slate-900 py-4 shadow-md md:py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -85,14 +86,14 @@ const Navbar: React.FC = () => {
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, 'home')}
-            className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300"
+            className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300"
           >
             Krishna Singh<span className="text-indigo-500">.</span>
           </a>
 
-          {/* Desktop Navigation Links & Download Button */}
-          <div className="hidden md:flex items-center md:gap-4 lg:gap-6 xl:gap-8">
-            <nav className="flex items-center md:space-x-3.5 lg:space-x-6 xl:space-x-8">
+          {/* Desktop Navigation Links & Action Buttons */}
+          <div className="hidden md:flex items-center md:gap-3 lg:gap-5 xl:gap-6">
+            <nav className="flex items-center md:space-x-2.5 lg:space-x-5 xl:space-x-6">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
@@ -100,15 +101,15 @@ const Navbar: React.FC = () => {
                   onClick={(e) => handleNavClick(e, link.id)}
                   className={`relative py-1.5 md:text-xs lg:text-sm font-medium transition-colors duration-300 ${
                     activeId === link.id
-                      ? 'text-indigo-400'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'text-indigo-600 dark:text-indigo-400'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {link.name}
                   {activeId === link.id && (
                     <motion.span
                       layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-500 dark:bg-indigo-400"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -116,6 +117,21 @@ const Navbar: React.FC = () => {
               ))}
             </nav>
 
+            {/* Theme Toggle Button (Desktop) */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-800/60 border border-gray-200 dark:border-slate-800 transition-all duration-300 active:scale-95"
+              aria-label="Toggle light/dark theme"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? (
+                <FiSun className="w-4 h-4 text-amber-400 hover:rotate-90 transition-transform duration-300" />
+              ) : (
+                <FiMoon className="w-4 h-4 text-indigo-600 hover:-rotate-12 transition-transform duration-300" />
+              )}
+            </button>
+
+            {/* Download Resume Button */}
             <a
               href={personalInfo.resumeUrl}
               target="_blank"
@@ -130,10 +146,22 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile controls */}
-          <div className="flex items-center md:hidden space-x-4">
+          <div className="flex items-center md:hidden space-x-2">
+            {/* Theme Toggle Button (Mobile) */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-800/60 border border-gray-200 dark:border-slate-800 transition-all duration-300"
+              aria-label="Toggle light/dark theme"
+            >
+              {theme === 'dark' ? (
+                <FiSun className="w-5 h-5 text-amber-400" />
+              ) : (
+                <FiMoon className="w-5 h-5 text-indigo-600" />
+              )}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-300 hover:text-white transition-colors duration-300"
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
               aria-label="Toggle mobile navigation menu"
             >
               {isOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
@@ -142,7 +170,7 @@ const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu (Outside header context to prevent layout/z-index issues) */}
+      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -156,23 +184,23 @@ const Navbar: React.FC = () => {
               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 md:hidden"
             />
 
-            {/* Mobile Drawer Menu (Slides in from the right) */}
+            {/* Mobile Drawer Menu */}
             <motion.div
               key="mobile-nav-drawer"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 bottom-0 w-80 z-50 md:hidden bg-gray-950 border-l border-slate-900 flex flex-col p-6 pt-6"
+              className="fixed top-0 right-0 bottom-0 w-80 z-50 md:hidden bg-white dark:bg-gray-950 border-l border-gray-200 dark:border-slate-900 flex flex-col p-6 pt-6 shadow-2xl"
             >
               {/* Drawer Header (Logo & Close Button) */}
-              <div className="flex items-center justify-between pb-6 border-b border-slate-900/80 mb-6">
-                <span className="text-xl font-bold tracking-tight text-white">
+              <div className="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-slate-900/80 mb-6">
+                <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Krishna Singh<span className="text-indigo-500">.</span>
                 </span>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-xl bg-gray-900 border border-slate-800 text-gray-400 hover:text-white transition-colors duration-200"
+                  className="p-2 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-slate-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                   aria-label="Close menu"
                 >
                   <HiX className="w-5 h-5" />
@@ -184,7 +212,7 @@ const Navbar: React.FC = () => {
                 variants={containerVariants}
                 initial="hidden"
                 animate="show"
-                className="flex flex-col space-y-3"
+                className="flex flex-col space-y-2.5"
               >
                 {navLinks.map((link) => (
                   <motion.a
@@ -194,8 +222,8 @@ const Navbar: React.FC = () => {
                     onClick={(e) => handleNavClick(e, link.id)}
                     className={`flex items-center text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
                       activeId === link.id
-                        ? 'text-indigo-400 bg-indigo-500/10 border border-indigo-500/20'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
+                        ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 border border-transparent'
                     }`}
                   >
                     {link.icon}
@@ -209,7 +237,7 @@ const Navbar: React.FC = () => {
                 variants={containerVariants}
                 initial="hidden"
                 animate="show"
-                className="mt-auto pt-6 border-t border-slate-900 flex flex-col gap-6"
+                className="mt-auto pt-6 border-t border-gray-200 dark:border-slate-900 flex flex-col gap-5"
               >
                 <motion.div variants={itemVariants}>
                   <a
@@ -225,13 +253,13 @@ const Navbar: React.FC = () => {
 
                 <motion.div
                   variants={itemVariants}
-                  className="flex items-center justify-center gap-5 text-gray-400"
+                  className="flex items-center justify-center gap-5 text-gray-500 dark:text-gray-400"
                 >
                   <a
                     href="https://github.com/KrishnaSingh9999"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-indigo-400 transition-colors duration-200"
+                    className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
                     aria-label="GitHub"
                   >
                     <FaGithub className="w-5 h-5" />
@@ -240,14 +268,14 @@ const Navbar: React.FC = () => {
                     href="https://www.linkedin.com/in/krishnasingh9811/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-indigo-400 transition-colors duration-200"
+                    className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
                     aria-label="LinkedIn"
                   >
                     <FaLinkedin className="w-5 h-5" />
                   </a>
                   <a
                     href="mailto:krishna1863singh@gmail.com"
-                    className="hover:text-indigo-400 transition-colors duration-200"
+                    className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
                     aria-label="Email"
                   >
                     <FiMail className="w-5 h-5" />
