@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
             onClick={(e) => handleNavClick(e, 'home')}
             className="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors duration-300"
           >
-            Krishna<span className="text-indigo-500">.</span>
+            Krishna Singh<span className="text-indigo-500">.</span>
           </a>
 
           {/* Desktop Navigation Links & Download Button */}
@@ -168,7 +168,7 @@ const Navbar: React.FC = () => {
               {/* Drawer Header (Logo & Close Button) */}
               <div className="flex items-center justify-between pb-6 border-b border-slate-900/80 mb-6">
                 <span className="text-xl font-bold tracking-tight text-white">
-                  Krishna<span className="text-indigo-500">.</span>
+                  Krishna Singh<span className="text-indigo-500">.</span>
                 </span>
                 <button
                   onClick={() => setIsOpen(false)}

@@ -1,7 +1,7 @@
 import { Project, SkillCategory, Experience, Education, SocialLink } from '../types';
 
 export const personalInfo = {
-  name: "Krishna",
+  name: "Krishna Singh",
   roles: ["Full Stack Developer (MERN)", "Software Engineer"],
   tagline: "Full Stack Developer specializing in building high-performance MERN applications, real-time collaboration engines, and scalable backend architectures. Committed to writing clean, type-safe code and solving complex algorithm challenges.",
   resumeUrl: "https://drive.google.com/file/d/18Us3MMNdcQVR78tX1e6VDb8UW68HNmeS/view?usp=sharing",
@@ -138,8 +138,9 @@ export const projects: Project[] = [
     tech: ["React", "Node.js", "Express.js", "MongoDB", "Socket.io", "Redis", "TailwindCSS", "JWT Authentication"],
     github: "https://github.com/SmartHealthcareAssistant/A-Smart-Healthcare-Platform-MediDost",
     live: "https://medi-dost-frontend.vercel.app/",
-    liveAdmin: "https://medidost-admin.onrender.com/admin/login",
+    liveAdmin: "https://medidost-admin.onrender.com",
     image: "/medidost_landscape.png",
+    images: ["/medidost_landscape.png", "/medidost_admin_view.png"],
     featured: true
   },
   {
