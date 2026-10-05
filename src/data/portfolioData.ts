@@ -157,6 +157,7 @@ export const projects: Project[] = [
     github: "https://github.com/Krishnasingh9999/ChatSphere",
     live: "https://chatsphere-live.duckdns.org",
     image: "/chatsphere_landscape.png",
+    images: ["/chatsphere_landscape.png", "/chatsphere_chat_view.png"],
     featured: true
   },
   {

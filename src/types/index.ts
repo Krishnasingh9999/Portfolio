@@ -18,6 +18,7 @@ export interface Project {
   live: string;
   liveAdmin?: string;
   image?: string;
+  images?: string[];
   featured: boolean;
 }
 

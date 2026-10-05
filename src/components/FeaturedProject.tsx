@@ -43,12 +43,29 @@ const FeaturedProject: React.FC = () => {
                 className="bg-gray-50/50 dark:bg-[#0d0f1a]/80 backdrop-blur-md border border-gray-200 dark:border-slate-800 rounded-3xl p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-8 relative hover:border-indigo-500/30 dark:hover:border-indigo-500/30 transition-all duration-300 group shadow-lg dark:shadow-2xl"
               >
                 {/* Left Side: Screenshot Image / Visual Banner */}
-                <div className="w-full lg:w-[42%] shrink-0 relative rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800/80 bg-gray-100 dark:bg-slate-950 flex items-center justify-center self-start">
-                  <img
-                    src={image || "/medidost_landscape.png"}
-                    alt={`${title} Preview`}
-                    className="w-full h-auto object-cover block group-hover:scale-[1.02] transition-transform duration-500 shadow-md"
-                  />
+                <div className="w-full lg:w-[42%] shrink-0 flex flex-col gap-3 self-start">
+                  {project.images && project.images.length > 0 ? (
+                    project.images.map((imgSrc, imgIdx) => (
+                      <div
+                        key={imgIdx}
+                        className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800/80 bg-gray-100 dark:bg-slate-950 flex items-center justify-center shadow-md"
+                      >
+                        <img
+                          src={imgSrc}
+                          alt={`${title} Preview ${imgIdx + 1}`}
+                          className="w-full h-auto object-cover block group-hover:scale-[1.02] transition-transform duration-500"
+                        />
+                      </div>
+                    ))
+                  ) : (
+                    <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800/80 bg-gray-100 dark:bg-slate-950 flex items-center justify-center shadow-md">
+                      <img
+                        src={image || "/medidost_landscape.png"}
+                        alt={`${title} Preview`}
+                        className="w-full h-auto object-cover block group-hover:scale-[1.02] transition-transform duration-500"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Right Side: Details */}
