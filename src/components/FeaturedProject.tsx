@@ -87,13 +87,13 @@ const FeaturedProject: React.FC = () => {
 
                   {/* Bullet Points */}
                   {project.bullets && (
-                    <ul className="space-y-2 mb-6 text-xs sm:text-sm text-gray-400 list-none text-left w-full">
+                    <ul className="space-y-2 mb-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400 list-none text-left w-full">
                       {project.bullets.map((bullet, idx) => (
                         <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
-                          <span className="text-indigo-400 font-bold mt-0.5 flex-shrink-0 text-sm">
+                          <span className="text-indigo-600 dark:text-indigo-400 font-bold mt-0.5 flex-shrink-0 text-sm">
                             ▹
                           </span>
-                          <span className="text-gray-300 font-normal">
+                          <span className="text-gray-700 dark:text-gray-300 font-normal">
                             {bullet.replace(/\*\*/g, '')}
                           </span>
                         </li>

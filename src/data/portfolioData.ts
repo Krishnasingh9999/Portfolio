@@ -2,13 +2,13 @@ import { Project, SkillCategory, Experience, Education, SocialLink } from '../ty
 
 export const personalInfo = {
   name: "Krishna Singh",
-  roles: ["Full Stack Developer (MERN)", "Software Engineer"],
-  tagline: "Full Stack Developer specializing in building high-performance MERN applications, real-time collaboration engines, and scalable backend architectures. Committed to writing clean, type-safe code and solving complex algorithm challenges.",
+  roles: ["Full Stack Developer (MERN)", "Java Developer", "Software Engineer"],
+  tagline: "Full Stack Developer & B.Tech CSE Graduate with practical experience in building responsive web applications using React, Node.js, Express, and MongoDB. Strong background in Java, Data Structures & Algorithms, and real-time backend integrations.",
   resumeUrl: "https://drive.google.com/file/d/18Us3MMNdcQVR78tX1e6VDb8UW68HNmeS/view?usp=sharing",
   bioParagraphs: [
-    "I am a passionate Full Stack Developer and Computer Science undergraduate specializing in the MERN stack (MongoDB, Express.js, React, Node.js). With practical experience building production-ready applications, I focus on designing low-latency RESTful APIs, responsive frontend architectures, and secure authentication systems.",
-    "Currently pursuing a Bachelor of Technology in Computer Science & Engineering (2022 - 2026) at KCC Institute of Technology and Management (Greater Noida), I maintain a robust academic foundation in Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Management, Operating Systems, and Software Engineering.",
-    "I excel at translating complex system requirements into elegant, modular software. Through hands-on projects, I have integrated real-time state synchronization using Socket.io, database caching with Redis, and state management via Zustand. I continuously explore new technologies and AI-assisted workflows to maximize code quality and efficiency."
+    "I am a Full Stack Developer and recent B.Tech Computer Science graduate. I focus on building clean, fast, and user-friendly web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Java.",
+    "I graduated with a B.Tech in Computer Science & Engineering from KCC Institute of Technology and Management (Greater Noida) with a CGPA of 7.6 / 10 (First Division with Distinction). I have a strong grounding in Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, and Computer Networks.",
+    "Through my internship and hands-on projects, I have implemented real-time communication using Socket.io and WebRTC, message queues with RabbitMQ, and caching with Redis. I enjoy solving algorithmic challenges and building practical software that solves real-world problems."
   ],
   stats: [
     { label: "DSA Solutions", value: "200+" },
