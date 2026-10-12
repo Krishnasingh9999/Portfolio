@@ -4,7 +4,7 @@ export const personalInfo = {
   name: "Krishna Singh",
   roles: ["Full Stack Developer (MERN)", "Java Developer", "Software Engineer"],
   tagline: "Full Stack Developer & B.Tech CSE Graduate with practical experience in building responsive web applications using React, Node.js, Express, and MongoDB. Strong background in Java, Data Structures & Algorithms, and real-time backend integrations.",
-  resumeUrl: "https://drive.google.com/file/d/18Us3MMNdcQVR78tX1e6VDb8UW68HNmeS/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1BXyhlI7xXWCRGQKDJOckJ20KRt4yjyMt/view?usp=drive_link",
   bioParagraphs: [
     "I am a Full Stack Developer and recent B.Tech Computer Science graduate. I focus on building clean, fast, and user-friendly web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Java.",
     "I graduated with a B.Tech in Computer Science & Engineering from KCC Institute of Technology and Management (Greater Noida) with a CGPA of 7.6 / 10 (First Division with Distinction). I have a strong grounding in Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, and Computer Networks.",
